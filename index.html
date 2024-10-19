@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScriptConverter</title>
+</head>
+<body>
+    <h1>Script Converter</h1>
+
+    <form>
+        <label for="inputString">Input:</label>
+        <br>
+        <textarea id="inputString" name="inputString" rows=20 cols=75>
+
+Expected input format - 
+
+Character1: What the character says
+
+Character2: Will automatically hide prev char and show current speaking char.
+
+Some random text without any attributed character.
+
+Character3: If the same char speaks twice in a row...
+
+Character3: It will not attempt to hide it again.
+
+Character1: All characters will likely show up in the center with their normal expression. Backgrounds are not handled.
+        </textarea>
+        <br>
+        <button type="button" id="submit" value="convert">convert</button>
+    </form>
+
+    <label for="outputString">Output:</label> 
+    <br>
+    <textarea id="outputString" name="outputString" rows=30 cols=75></textarea>
+
+    <script type="text/javascript" src="scripts/convertScript.js"></script>
+    
+</body>
+</html>
