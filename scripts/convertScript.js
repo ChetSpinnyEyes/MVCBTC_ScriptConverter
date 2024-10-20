@@ -21,6 +21,7 @@ function convertScript() {
         }
 
         let convertedLine = line;
+        let shouldAddLine = true;
 
         // find semicolon
         for (let i = 0; i < line.length; i++) {
@@ -28,6 +29,13 @@ function convertScript() {
             if (c == ':') {
                 let currentVtuber = line.substring(0, i);
                 let currentVtuberLower = currentVtuber.toLowerCase();
+
+                // skip line if it starts like "section: " or "cast: "
+                if (currentVtuberLower.startsWith("section") || currentVtuberLower.startsWith("cast")
+                    || currentVtuberLower.startsWith("temp")) {
+                    shouldAddLine = false;
+                    break;
+                }
                 
                 // who current char if necessary
                 if (currentVtuber !== lastVtuber) {
@@ -50,7 +58,9 @@ function convertScript() {
             }
         }
 
-        convertedInput += (convertedLine + "\n\n");
+        if (shouldAddLine) {
+            convertedInput += (convertedLine + "\n\n");
+        }
     }
 
     
