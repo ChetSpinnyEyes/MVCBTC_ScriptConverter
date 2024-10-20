@@ -32,7 +32,7 @@ function convertScript() {
 
                 // skip line if it starts like "section: " or "cast: "
                 if (currentVtuberLower.startsWith("section") || currentVtuberLower.startsWith("cast")
-                    || currentVtuberLower.startsWith("temp")) {
+                    || currentVtuberLower.includes("temp")) {
                     shouldAddLine = false;
                     break;
                 }
